@@ -1,11 +1,7 @@
 <h1>Places</h1>
-
-<ul>
-  <% for place in @places %>
-    <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
+<%= link_to "Add Place", new_place_path, class: "btn btn-success mb-3" %>
+<div class="list-group">
+  <% @places.each do |place| %>
+    <%= link_to place.name, place_path(place), class: "list-group-item list-group-item-action" %>
   <% end %>
-</ul>
-
-<p>
-  <a href="/places/new">New place</a>
-</p>
+</div>
